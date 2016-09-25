@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceStationAdministration", "ServiceStationAdministration\ServiceStationAdministration.csproj", "{DE257A00-04A1-421C-A99D-F59D81222D3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceStationAdministration.Tests", "ServiceStationAdministration.Tests\ServiceStationAdministration.Tests.csproj", "{EC28B057-E106-40E3-AE5F-EAF0D233FB80}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE257A00-04A1-421C-A99D-F59D81222D3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE257A00-04A1-421C-A99D-F59D81222D3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE257A00-04A1-421C-A99D-F59D81222D3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE257A00-04A1-421C-A99D-F59D81222D3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC28B057-E106-40E3-AE5F-EAF0D233FB80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC28B057-E106-40E3-AE5F-EAF0D233FB80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC28B057-E106-40E3-AE5F-EAF0D233FB80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC28B057-E106-40E3-AE5F-EAF0D233FB80}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

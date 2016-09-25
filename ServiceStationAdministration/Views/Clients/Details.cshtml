@@ -1,0 +1,83 @@
+﻿@model ServiceStationAdministration.Models.Client
+
+@{
+    ViewBag.Title = "Client cars";
+}
+
+<div class="row">
+<div class="col-lg-offset-3 col-lg-7">
+<div>
+    <h3>Client details: @Html.DisplayFor(model => model.FullName)</h3>
+
+       @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+            @Html.ActionLink("Back to clients list", "Index")
+        
+    <hr/>
+    <dl class="dl-horizontal col-lg-offset-3 col-lg-6">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        </dl>
+        <dl>
+            @{ 
+                Html.RenderPartial("CarsPartial", Model.Cars);
+            }
+        </dl>
+    <dl class="text-center">@Html.ActionLink("Add new car", "Create", "Car", new { clientID = Model.ID }, new { @class = "text-center btn-primary btn-block btn-lg" })</dl>
+
+    
+
+    </dl>
+
+</div>
+
+    </div>
+</div class="row">
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

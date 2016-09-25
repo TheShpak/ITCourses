@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ServiceStationAdministration.Models.Order>
+@using ServiceStationAdministration.Models
+
+<h3 class="text-center">Orders list</h3>
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderStatus)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderStatus)
+            </td>
+            <td>
+                @if (item.OrderStatus == OrderStatus.inProgress) { 
+                    <span>  @Html.ActionLink("Complete", "ChangeStatus", "Order", new { id = item.OrderID, newStatus = OrderStatus.completed }, null) |
+                            @Html.ActionLink("Cancel", "ChangeStatus", "Order", new { id = item.OrderID, newStatus = OrderStatus.canceled }, null)
+                    </span> 
+
+                }
+                else
+                {
+                    <span>
+                        @Html.ActionLink("Reactivate", "ChangeStatus", "Order", new { id = item.OrderID, newStatus = OrderStatus.inProgress }, null)
+                    </span>
+                }                
+                | @Html.ActionLink("Edit", "Edit", "Order", new { id = item.OrderID }, null)
+                | @Html.ActionLink("Delete", "Delete", "Order", new { id = item.OrderID }, null)
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ServiceStationAdministration.Models.Client>
+
+@{
+    ViewBag.Title = "Clients list";
+}
+<div class="row">
+    
+    <div class="col-lg-offset-3 col-lg-6">
+        <h2 class="text-center">Clients list</h2>
+        <div class="col-lg-offset-4 col-lg-4">
+            @Html.ActionLink("Create new client", "Create", null, new { @class = "text-center btn-primary btn-block btn-lg" })
+        </div>
+        </div>
+        <div class="col-lg-offset-3 col-lg-6">
+            @using (Html.BeginForm())
+            {
+                    <h3 class="text-center">Find client by</h3>
+                <p>
+                    name: @Html.TextBox("SearchStringFirstName") surnme: @Html.TextBox("SearchStringLastName")
+                    <input type="submit" value="Search" />
+                </p>
+            }
+        </div>
+    
+        <div class="col-lg-offset-2 col-lg-8">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.ActionLink("Client's Name", "Index", new { sortOrder = ViewBag.NameSortParm })
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PhoneNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+            {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PhoneNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Cars list", "Details", new { id = item.ID }) |
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>

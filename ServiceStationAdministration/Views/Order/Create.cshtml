@@ -1,0 +1,69 @@
+﻿@model ServiceStationAdministration.Models.Order
+
+@{
+    ViewBag.Title = "Create an order";
+}
+
+<div class="row">
+    <div class="col-lg-offset-3 col-lg-6">
+        <h2>Create order for @ViewBag.car.Client.FullName</h2>
+
+        <h3>Car: @ViewBag.car.Make @ViewBag.car.Model</h3>
+
+        <div>
+            @Html.ActionLink("Back to the car", "Details", "Car", new { id = ViewBag.car.CarID}, null)
+        </div>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.CarID)
+
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        @Html.DisplayNameFor(model => model.Date)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control", @Value = DateTime.Now.ToString("MM/dd/yyyy") } })
+                        @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        @Html.DisplayNameFor(model => model.OrderAmount)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.OrderAmount, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.OrderAmount, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="control-label col-md-3">
+                        @Html.DisplayNameFor(model => model.OrderStatus)
+                    </div>
+                    <div class="col-md-9">
+                        @Html.EnumDropDownListFor(model => model.OrderStatus, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.OrderStatus, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-3 col-md-9">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+        </div>
+    </div>
+        
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

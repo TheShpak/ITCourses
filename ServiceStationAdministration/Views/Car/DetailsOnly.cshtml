@@ -1,0 +1,64 @@
+﻿@model ServiceStationAdministration.Models.Car
+
+@{
+    ViewBag.Title = "Car details";
+}
+
+<div class="row">
+    <div class="col-lg-offset-3 col-lg-6">
+        <h2>Client: @Model.Client.FullName</h2>
+
+
+        <h4>Car: @Model.Make @Model.Model</h4>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.CarID }) |
+        @Html.ActionLink("Back to client", "Details", "Clients", new { id = Model.ClientID }, null)
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Client.Address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Client.Address)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Make)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Make)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Model)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Model)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Year)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Year)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Vin)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Vin)
+            </dd>
+
+        </dl>
+
+    </div>
+</div>
+<p>
+
+
+</p>

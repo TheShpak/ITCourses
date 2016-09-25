@@ -1,0 +1,100 @@
+﻿@model ServiceStationAdministration.Models.Client
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+<div class="row">
+    <div class="col-lg-offset-3 col-lg-6">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h3>Edit client</h3>
+                <div>
+                    @Html.ActionLink("Back to client", "Details", new { id = Model.ID }, null) |
+                    @Html.ActionLink("Back to clients list", "Index")
+                    
+                </div>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.ID)
+
+                <div class="form-group">
+                    <div class="control-label col-md-2">
+                        @Html.DisplayNameFor(model => model.Name.FirstName)
+                    </div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Name.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name.FirstName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="control-label col-md-2">
+                        @Html.DisplayNameFor(model => model.Name.LastName)
+                    </div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Name.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name.LastName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="control-label col-md-2">
+                        @Html.DisplayNameFor(model => model.DateOfBirth)
+                    </div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DateOfBirth, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="control-label col-md-2">
+                        @Html.DisplayNameFor(model => model.Address)
+                    </div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="control-label col-md-2">
+                        @Html.DisplayNameFor(model => model.PhoneNumber)
+                    </div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="control-label col-md-2">
+                        @Html.DisplayNameFor(model => model.Email)
+                    </div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+
+        </div>
+    </div>
+
+       
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }
